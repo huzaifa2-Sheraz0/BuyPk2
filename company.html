@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyPK | Company Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .company-container {
+            display: flex;
+            min-height: 100vh;
+            background: #f8fafc;
+        }
+
+        .company-sidebar {
+            width: 260px;
+            background: white;
+            box-shadow: var(--shadow);
+            padding: 25px 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .company-logo {
+            padding: 0 25px 30px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 25px;
+        }
+
+        .company-nav {
+            padding: 0 15px;
+        }
+
+        .company-nav-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: var(--radius);
+            margin-bottom: 8px;
+            transition: var(--transition);
+        }
+
+        .company-nav-item:hover,
+        .company-nav-item.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .company-nav-item i {
+            width: 24px;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .company-main {
+            flex: 1;
+            margin-left: 260px;
+            padding: 30px;
+        }
+
+        .company-header {
+            background: white;
+            padding: 25px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .company-header h1 {
+            font-size: 28px;
+            color: var(--darker);
+            font-weight: 700;
+        }
+
+        .company-user {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .company-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+        }
+
+        .stat-info h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--darker);
+            margin-bottom: 8px;
+        }
+
+        .stat-info p {
+            color: var(--gray);
+            font-size: 15px;
+        }
+
+        .company-section {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .section-header h2 {
+            font-size: 22px;
+            color: var(--darker);
+            font-weight: 700;
+        }
+
+        .company-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .company-table th {
+            background: var(--light);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: var(--darker);
+            border-bottom: 2px solid var(--border);
+        }
+
+        .company-table td {
+            padding: 15px;
+            border-bottom: 1px solid var(--light-gray);
+            color: var(--dark);
+        }
+
+        .company-table tr:hover {
+            background: var(--light);
+        }
+
+        .status-badge {
+            padding: 6px 15px;
+            border-radius: var(--radius-full);
+            font-size: 13px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-active {
+            background: rgba(19, 195, 154, 0.1);
+            color: var(--secondary);
+        }
+
+        .status-pending {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .btn-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light);
+            color: var(--dark);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 0 4px;
+        }
+
+        .btn-icon:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: var(--gradient-accent);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .products-grid-company {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card-company {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card-company:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .product-header h3 {
+            font-size: 18px;
+            color: var(--darker);
+            margin: 0;
+        }
+
+        .product-info {
+            margin-bottom: 20px;
+        }
+
+        .product-info p {
+            color: var(--gray);
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        @media (max-width: 992px) {
+            .company-sidebar {
+                width: 80px;
+            }
+
+            .company-sidebar .company-nav-item span {
+                display: none;
+            }
+
+            .company-main {
+                margin-left: 80px;
+            }
+
+            .company-logo {
+                padding: 0 15px 20px;
+            }
+
+            .company-nav {
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .company-container {
+                flex-direction: column;
+            }
+
+            .company-sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 15px 0;
+            }
+
+            .company-main {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .company-nav {
+                display: flex;
+                overflow-x: auto;
+                padding: 10px;
+            }
+
+            .company-nav-item {
+                flex-shrink: 0;
+                margin-bottom: 0;
+                margin-right: 10px;
+            }
+
+            .company-nav-item span {
+                display: inline !important;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid-company {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="company-container">
+        <!-- Sidebar -->
+        <div class="company-sidebar">
+            <div class="company-logo">
+                <a href="#" class="logo" style="justify-content: flex-start;">
+                    <div class="logo-icon" style="width: 40px; height: 40px; font-size: 20px; background: var(--gradient-secondary);">BP</div>
+                    <div class="logo-text" style="font-size: 22px;">Company<span>Panel</span></div>
+                </a>
+            </div>
+
+            <nav class="company-nav">
+                <a href="#" class="company-nav-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#" class="company-nav-item" data-section="products">
+                    <i class="fas fa-box"></i>
+                    <span>My Products</span>
+                </a>
+                <a href="#" class="company-nav-item" data-section="orders">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Orders</span>
+                </a>
+                <a href="#" class="company-nav-item" data-section="analytics">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="company-nav-item" data-section="profile">
+                    <i class="fas fa-store"></i>
+                    <span>Company Profile</span>
+                </a>
+                <a href="#" class="company-nav-item" data-section="support">
+                    <i class="fas fa-headset"></i>
+                    <span>Support</span>
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="company-main">
+            <div class="company-header">
+                <h1 id="sectionTitle">Dashboard</h1>
+                <div class="company-user">
+                    <div class="company-avatar" id="companyAvatar">C</div>
+                    <div>
+                        <h4 id="companyName">Company Name</h4>
+                        <p id="companyEmail">company@example.com</p>
+                    </div>
+                    <button class="logout-btn" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div id="dashboardSection" class="company-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--gradient-primary);">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalProducts">0</h3>
+                            <p>Active Products</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--gradient-secondary);">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total Orders</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: var(--gradient-accent);">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="totalRevenue">$0</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon" style="background: linear-gradient(135deg, #ffb400 0%, #ff8a00 100%);">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="avgRating">0.0</h3>
+                            <p>Average Rating</p>
+                        </div>
+                    </div>
+                </div>
+
+                        <!-- Add Product Modal -->
+                        <div class="modal" id="addProductModal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3><i class="fas fa-box"></i> Add New Product</h3>
+                                    <button class="close-modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="addProductForm">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>Product Name</label>
+                                                <input type="text" id="addProductName" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Category</label>
+                                                <select id="addProductCategory" class="form-control" required>
+                                                    <option value="">Select Category</option>
+                                                    <option value="electronics">Electronics</option>
+                                                    <option value="fashion">Fashion</option>
+                                                    <option value="home">Home & Kitchen</option>
+                                                    <option value="beauty">Beauty & Health</option>
+                                                    <option value="sports">Sports & Fitness</option>
+                                                    <option value="books">Books & Stationery</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>Price ($)</label>
+                                                <input type="number" id="addProductPrice" class="form-control" step="0.01" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Stock Quantity</label>
+                                                <input type="number" id="addProductStock" class="form-control" required>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea id="addProductDescription" class="form-control" rows="4" required></textarea>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label>Product Images</label>
+                                            <input type="file" id="addProductImages" class="form-control" multiple accept="image/*">
+                                        </div>
+                    
+                                        <div class="form-actions">
+                                            <button type="button" class="btn btn-outline close-modal">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Add Product</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edit Product Modal -->
+                        <div class="modal" id="editProductModal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3><i class="fas fa-edit"></i> Edit Product</h3>
+                                    <button class="close-modal">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="editProductForm">
+                                        <input type="hidden" id="editProductId">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>Product Name</label>
+                                                <input type="text" id="editProductName" class="form-control" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Category</label>
+                                                <select id="editProductCategory" class="form-control" required>
+                                                    <option value="">Select Category</option>
+                                                    <option value="electronics">Electronics</option>
+                                                    <option value="fashion">Fashion</option>
+                                                    <option value="home">Home & Kitchen</option>
+                                                    <option value="beauty">Beauty & Health</option>
+                                                    <option value="sports">Sports & Fitness</option>
+                                                    <option value="books">Books & Stationery</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>Price ($)</label>
+                                                <input type="number" id="editProductPrice" class="form-control" step="0.01" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Stock Quantity</label>
+                                                <input type="number" id="editProductStock" class="form-control" required>
+                                            </div>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea id="editProductDescription" class="form-control" rows="4" required></textarea>
+                                        </div>
+                    
+                                        <div class="form-group">
+                                            <label>Replace Images</label>
+                                            <input type="file" id="editProductImages" class="form-control" multiple accept="image/*">
+                                        </div>
+                    
+                                        <div class="form-actions">
+                                            <button type="button" class="btn btn-outline close-modal">Cancel</button>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- View Product Modal -->
+                        <div class="modal" id="viewProductModal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>Product Details</h3>
+                                    <button class="close-modal">&times;</button>
+                                </div>
+                                <div class="modal-body" id="viewProductContent">
+                                    <!-- Filled dynamically -->
+                                </div>
+                            </div>
+                        </div>
+
+                <div class="section-header">
+                    <h2>Recent Orders</h2>
+                    <button class="btn btn-primary" id="viewAllOrders">
+                        <i class="fas fa-eye"></i> View All
+                    </button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="company-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentOrdersTable">
+                            <!-- Recent orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Products Section -->
+            <div id="productsSection" class="company-section" style="display: none;">
+                <div class="section-header">
+                    <h2>My Products</h2>
+                    <button class="btn btn-primary" id="addProductBtn">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+
+                <div class="products-grid-company" id="productsGridCompany">
+                    <!-- Products will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Orders Section -->
+            <div id="ordersSection" class="company-section" style="display: none;">
+                <div class="section-header">
+                    <h2>Order Management</h2>
+                    <div class="filter-options">
+                        <select id="orderFilter" class="form-control" style="width: 200px;">
+                            <option value="all">All Orders</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="company-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Products</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTable">
+                            <!-- Orders will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Analytics Section -->
+            <div id="analyticsSection" class="company-section" style="display: none;">
+                <div class="section-header">
+                    <h2>Sales Analytics</h2>
+                    <div class="date-range">
+                        <select id="timePeriod" class="form-control" style="width: 200px;">
+                            <option value="7days">Last 7 Days</option>
+                            <option value="30days">Last 30 Days</option>
+                            <option value="90days">Last 90 Days</option>
+                            <option value="year">This Year</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="analytics-charts">
+                    <div class="chart-container" style="height: 400px;">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div id="profileSection" class="company-section" style="display: none;">
+                <div class="section-header">
+                    <h2>Company Profile</h2>
+                </div>
+
+                <form id="companyProfileForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Company Name</label>
+                            <input type="text" class="form-control" id="companyNameInput" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" id="companyEmailInput" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <input type="tel" class="form-control" id="companyPhoneInput">
+                        </div>
+                        <div class="form-group">
+                            <label>Website</label>
+                            <input type="url" class="form-control" id="companyWebsiteInput">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea class="form-control" id="companyDescription" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea class="form-control" id="companyAddress" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Support Section -->
+            <div id="supportSection" class="company-section" style="display: none;">
+                <div class="section-header">
+                    <h2>Support & Help</h2>
+                </div>
+
+                <div class="support-content">
+                    <div class="support-card">
+                        <h3><i class="fas fa-question-circle"></i> FAQ</h3>
+                        <div class="faq-list">
+                            <div class="faq-item">
+                                <h4>How do I add a new product?</h4>
+                                <p>Go to "My Products" section and click "Add Product" button.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>How are payments processed?</h4>
+                                <p>Payments are processed securely and transferred to your account every 30 days.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>How can I track my sales?</h4>
+                                <p>Use the Analytics section to view detailed sales reports and charts.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="support-card">
+                        <h3><i class="fas fa-headset"></i> Contact Support</h3>
+                        <p>For any questions or issues, contact our support team:</p>
+                        <ul class="contact-list">
+                            <li><i class="fas fa-envelope"></i> support@buypk.com</li>
+                            <li><i class="fas fa-phone"></i> +92 (300) 123-4567</li>
+                            <li><i class="fas fa-clock"></i> Mon-Fri: 9 AM - 6 PM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Functionalities/company.js"></script>
+</body>
+</html>

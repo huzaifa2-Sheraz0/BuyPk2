@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyPK | Premium E-commerce Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.full.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +92 (300) 123-4567</span>
+                <span><i class="fas fa-envelope"></i> support@buypk.com</span>
+                <span><i class="fas fa-clock"></i> 24/7 Support</span>
+            </div>
+            <div class="auth-links">
+                <a href="#" id="loginBtn"><i class="fas fa-sign-in-alt"></i> Login</a>
+                <a href="#" id="registerBtn"><i class="fas fa-user-plus"></i> Register</a>
+                <a href="#" id="trackOrderTopBtn"><i class="fas fa-truck"></i> Track Order</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-icon">BP</div>
+                    <div class="logo-text">Buy<span>PK</span></div>
+                </a>
+                
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search premium products...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="header-actions">
+                    <a href="#" class="header-action" id="wishlistBtn">
+                        <i class="far fa-heart"></i>
+                        <span>Wishlist</span>
+                        <span class="wishlist-count" id="wishlistCount">0</span>
+                    </a>
+                    <a href="#" class="header-action" id="accountBtn">
+                        <i class="far fa-user"></i>
+                        <span>Account</span>
+                    </a>
+                    <a href="#" class="header-action" id="cartBtn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="dropdown">
+                        <a href="#"><i class="fas fa-th-large"></i> Categories <i class="fas fa-chevron-down"></i></a>
+                        <div class="dropdown-content">
+                            <a href="category-electronics.html"><i class="fas fa-laptop"></i> Electronics</a>
+                            <a href="category-fashion.html"><i class="fas fa-tshirt"></i> Fashion</a>
+                            <a href="category-home.html"><i class="fas fa-home"></i> Home & Kitchen</a>
+                            <a href="category-beauty.html"><i class="fas fa-spa"></i> Beauty & Health</a>
+                            <a href="category-sports.html"><i class="fas fa-dumbbell"></i> Sports & Fitness</a>
+                            <a href="category-books.html"><i class="fas fa-book"></i> Books & Stationery</a>
+                        </div>
+                    </li>
+                    <li><a href="featured.html"><i class="fas fa-star"></i> Featured</a></li>
+                    <li><a href="new-arrivals.html"><i class="fas fa-newspaper"></i> New Arrivals</a></li>
+                    <li><a href="trending.html"><i class="fas fa-fire"></i> Trending</a></li>
+                    <li><a href="#contact"><i class="fas fa-headset"></i> Support</a></li>
+                </ul>
+                <div class="hot-deal">
+                    <i class="fas fa-bolt"></i> FLASH SALE: 60% OFF Electronics <span class="timer">12:34:56</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+            <!-- Hero Slider -->
+    <section class="hero-slider" id="heroSlider">
+        <div class="slide active">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')"></div>
+            <div class="slide-content">
+                <span class="slide-badge">Limited Time Offer</span>
+                <h1>Shop The Latest <br>Premium Collection</h1>
+                <p>Discover cutting-edge technology with premium quality and innovative design. Up to 60% OFF on selected items.</p>
+                <div class="slide-btns">
+                    <a href="#category-search" class="btn btn-primary">Shop Now <i class="fas fa-arrow-right"></i></a>
+                    <a href="featured.html" class="btn btn-outline">View Deals</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')"></div>
+            <div class="slide-content">
+                <span class="slide-badge">New Collection</span>
+                <h1>Summer Fashion <br>Essentials 2024</h1>
+                <p>Elevate your style with our exclusive fashion collection. Premium materials, perfect fit, and timeless designs.</p>
+                <div class="slide-btns">
+                    <a href="#category-search" class="btn btn-primary">Explore Collection <i class="fas fa-arrow-right"></i></a>
+                    <a href="trending.html" class="btn btn-outline">Trending Styles</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80')"></div>
+            <div class="slide-content">
+                <span class="slide-badge">Premium Quality</span>
+                <h1>Home & Living <br>Made Beautiful</h1>
+                <p>Transform your space with our premium home collection. Smart solutions for modern living.</p>
+                <div class="slide-btns">
+                    <a href="#category-search" class="btn btn-primary">Shop Home <i class="fas fa-arrow-right"></i></a>
+                    <a href="featured.html" class="btn btn-outline">Best Sellers</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-controls">
+            <div class="slider-dot active"></div>
+            <div class="slider-dot"></div>
+            <div class="slider-dot"></div>
+        </div>
+    </section>
+
+        <!-- Front: main menu shown; hero/other sections hidden via .front-mode CSS -->
+
+        <!-- Intro / Main Menu shown in front-mode -->
+        <section class="intro-main">
+            <div class="container">
+                <div class="intro-content">
+                    <h1>Welcome to BuyPK</h1>
+                    <p class="intro-sub">Premium products, carefully curated. Tap a category to explore.</p>
+                    <div class="intro-menu">
+                        <a href="category-electronics.html" class="intro-category-btn"><i class="fas fa-laptop"></i> Electronics</a>
+                        <a href="category-fashion.html" class="intro-category-btn"><i class="fas fa-tshirt"></i> Fashion</a>
+                        <a href="category-home.html" class="intro-category-btn"><i class="fas fa-home"></i> Home & Kitchen</a>
+                        <a href="category-beauty.html" class="intro-category-btn"><i class="fas fa-spa"></i> Beauty</a>
+                        <a href="category-sports.html" class="intro-category-btn"><i class="fas fa-dumbbell"></i> Sports</a>
+                        <a href="category-books.html" class="intro-category-btn"><i class="fas fa-book"></i> Books</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Panels removed: categories navigate to dedicated pages -->
+
+    <!-- New Arrivals -->
+    <section class="products-section new-arrivals" id="new-arrivals">
+        <div class="container">
+            <div class="products-header">
+                <div class="section-title left">
+                    <h2>New Arrivals</h2>
+                    <p>Check out our latest additions with cutting-edge features</p>
+                </div>
+                <a href="#category-search" class="view-all">View All New <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="products-grid" id="newArrivalsGrid">
+                <!-- New arrivals loaded by JavaScript -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section class="delivery-section" id="delivery">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About BuyPK</h2>
+                    <p>BuyPK is your premier destination for professionally photographed products. Every product image is carefully curated to match its name and description for an authentic shopping experience.</p>
+                    <p>With products in each of 6 categories, detailed product views, secure payment options, and fast delivery across Pakistan, we provide the most authentic shopping experience.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Premium Products</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Professional Photography</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Detailed Product Views</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Fast & Free Delivery</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <img src="Images/WhatsApp Image 2026-01-28 at 12.52.35 AM.jpeg" alt="About BuyPK">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Delivery Section -->
+        <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Fast & Reliable Delivery</h2>
+                <p>Choose the delivery option that suits your needs</p>
+            </div>
+            <div class="delivery-options">
+                <div class="delivery-card">
+                    <div class="delivery-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>Same Day Delivery</h3>
+                    <p>Get your orders delivered within the same day for orders placed before 12 PM</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="delivery-card">
+                    <div class="delivery-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Next Day Delivery</h3>
+                    <p>Order today and receive your package by tomorrow with our express service</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+                <div class="delivery-card">
+                    <div class="delivery-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Scheduled Delivery</h3>
+                    <p>Choose a date and time that works best for you with our flexible scheduling</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our team for any queries or support</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form">
+                    <h3>Send us a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>24/7 Customer Support</h4>
+                            <p>We're here to help you anytime</p>
+                            <p>support@buypk.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Fast Delivery</h4>
+                            <p>Same day delivery available</p>
+                            <p>Free shipping on orders over Rs. 5000</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Secure Shopping</h4>
+                            <p>100% secure payment</p>
+                            <p>SSL encrypted checkout</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <a href="#" class="logo" style="justify-content: flex-start; margin-bottom: 20px;">
+                        <div class="logo-icon" style="width: 40px; height: 40px; font-size: 20px;">BP</div>
+                        <div class="logo-text" style="font-size: 22px;">Buy<span>PK</span></div>
+                    </a>
+                    <p style="color: #adb5bd; margin-bottom: 20px;">Your trusted shopping destination with professionally photographed products and detailed product views.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="featured.html">Featured Products</a></li>
+                        <li><a href="new-arrivals.html">New Arrivals</a></li>
+                        <li><a href="#category-search">All Products</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#" id="trackOrderFooterBtn">Track Your Order</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p style="color: #adb5bd; margin-bottom: 20px;">Subscribe to get updates on new products and exclusive offers.</p>
+                    <div class="newsletter-form">
+                        <input type="email" id="newsletterEmail" placeholder="Your email address">
+                        <button type="button" class="btn btn-primary" style="width: 100%;" id="subscribeBtn">Subscribe</button>
+                    </div>
+                    <div class="payment-methods" style="margin-top: 20px;">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 BuyPK. All rights reserved. | Premium E-commerce Experience</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- All Modals (Product View, Cart, Wishlist, Order Tracking, Login, Register) -->
+    <!-- Product View Modal -->
+    <div class="modal" id="productViewModal">
+        <div class="modal-content product-view-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-eye"></i> Product Details</h3>
+                <button class="close-modal" id="closeProductViewModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="product-view-content" id="productViewContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Your Shopping Cart</h3>
+                <button class="close-modal" id="closeCartModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="cart-container" id="cartContainer">
+                    <div class="empty-cart" id="emptyCart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h4>Your cart is empty</h4>
+                        <p>Add some products to your cart</p>
+                        <a href="#category-search" class="btn btn-primary">Continue Shopping</a>
+                    </div>
+                </div>
+                
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="cartSubtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="cartShipping">$5.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Discount:</span>
+                        <span id="cartDiscount">-$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="cartTotal">$0.00</span>
+                    </div>
+                    <div class="cart-actions">
+                        <button class="btn btn-primary" id="checkoutBtn">Proceed to Checkout</button>
+                        <button class="btn btn-outline" id="continueShoppingBtn">Continue Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wishlist Modal -->
+    <div class="modal" id="wishlistModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-heart"></i> Your Wishlist</h3>
+                <button class="close-modal" id="closeWishlistModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="wishlist-container" id="wishlistContainer">
+                    <div class="empty-wishlist" id="emptyWishlist">
+                        <i class="far fa-heart"></i>
+                        <h4>Your wishlist is empty</h4>
+                        <p>Add some products to your wishlist</p>
+                        <a href="#category-search" class="btn btn-primary">Browse Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <!-- Login Role Selection Modal -->
+    <div class="modal" id="loginRoleModal">
+        <div class="modal-content role-selection-modal">
+            <div class="modal-header">
+                <h3>Login As</h3>
+                <button class="close-modal" id="closeLoginRoleModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="role-buttons">
+                    <button class="btn btn-primary role-btn" data-role="customer" id="loginAsCustomerBtn">Login as Customer</button>
+                    <button class="btn btn-outline role-btn" data-role="admin" id="loginAsAdminBtn">Login as Admin</button>
+                    <button class="btn btn-outline role-btn" data-role="company" id="loginAsCompanyBtn">Login as Company</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="loginModalHeader">Login to BuyPK</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <input type="hidden" id="loginRole" name="loginRole" value="customer">
+                    <div class="form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="login-btn" id="loginSubmitBtn">Login</button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" id="switchToRegister">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create Account</h3>
+                <button class="close-modal" id="closeRegisterModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="regName">Full Name</label>
+                        <input type="text" id="regName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email Address</label>
+                        <input type="email" id="regEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regRole">Role</label>
+                        <select id="regRole" required>
+                            <option value="">Select Role</option>
+                            <option value="customer">Customer</option>
+                            <option value="admin">Admin</option>
+                            <option value="company">Company</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="regPhone">Phone Number</label>
+                        <input type="tel" id="regPhone">
+                    </div>
+                    <button type="submit" class="login-btn">Create Account</button>
+                </form>
+                
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" id="switchToLogin">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Shipment Details Modal -->
+    <div class="modal" id="shipmentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-truck"></i> Shipment Details</h3>
+                <button class="close-modal" id="closeShipmentModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="shipmentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="shipName">Full Name *</label>
+                            <input type="text" id="shipName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="shipEmail">Email Address *</label>
+                            <input type="email" id="shipEmail" required placeholder="Enter your email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="shipPhone">Phone Number *</label>
+                            <div class="phone-input-group">
+                                <div class="country-code">
+                                    <i class="fas fa-phone"></i> +92
+                                </div>
+                                <input type="tel" id="shipPhone" required placeholder="300 1234567" pattern="[0-9]{10}" title="Enter 10-digit phone number">
+                            </div>
+                            <small class="form-hint">Enter your 10-digit mobile number</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="shipCity">City *</label>
+                            <select id="shipCity" required>
+                                <option value="">Select City</option>
+                                <option value="islamabad" selected>Islamabad</option>
+                                <option value="karachi">Karachi</option>
+                                <option value="lahore">Lahore</option>
+                                <option value="rawalpindi">Rawalpindi</option>
+                                <option value="faisalabad">Faisalabad</option>
+                                <option value="multan">Multan</option>
+                                <option value="peshawar">Peshawar</option>
+                                <option value="quetta">Quetta</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="shipAddress">Full Address *</label>
+                        <textarea id="shipAddress" rows="3" required placeholder="House #, Street, Area, Sector, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="shipPostal">Postal Code</label>
+                            <input type="text" id="shipPostal" placeholder="e.g., 47010" pattern="[0-9]{5}" title="5-digit postal code">
+                        </div>
+                        <div class="form-group">
+                            <label for="shipArea">Area/Locality</label>
+                            <input type="text" id="shipArea" placeholder="Your local area or sector">
+                        </div>
+                    </div>
+                    
+                    <div class="payment-method">
+                        <h4>Payment Method</h4>
+                        <div class="payment-options">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="cod" checked>
+                                <span>Cash on Delivery</span>
+                                <i class="fas fa-money-bill-wave"></i>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="card">
+                                <span>Credit/Debit Card</span>
+                                <i class="fas fa-credit-card"></i>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-footer">
+                        <div class="summary-preview">
+                            <h4>Order Summary</h4>
+                            <div class="summary-row">
+                                <span>Items:</span>
+                                <span id="previewItems">0</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Subtotal:</span>
+                                <span id="previewSubtotal">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="previewShipping">$5.00</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span id="previewTotal">$0.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-outline" id="backToCartBtn">
+                                <i class="fas fa-arrow-left"></i> Back to Cart
+                            </button>
+                            <button type="submit" class="btn btn-primary" id="confirmOrderBtn">
+                                <i class="fas fa-check-circle"></i> Place Order
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div class="modal" id="orderConfirmationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-check-circle"></i> Order Confirmed!</h3>
+                <button class="close-modal" id="closeOrderModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="order-confirmation">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4>Thank You for Your Order!</h4>
+                    <div class="order-details">
+                        <p><strong>Order ID:</strong> <span id="orderId">BPK-2024-001</span></p>
+                        <p><strong>Total Amount:</strong> <span id="orderTotal">$0.00</span></p>
+                        <p><strong>Estimated Delivery:</strong> <span id="orderDelivery">3-5 business days</span></p>
+                    </div>
+                    <p class="confirmation-message">
+                        We've sent a confirmation email with your order details.
+                    </p>
+                    <div class="confirmation-actions">
+                        <button class="btn btn-primary" id="trackOrderBtn">
+                            <i class="fas fa-shipping-fast"></i> Track Order
+                        </button>
+                        <button class="btn btn-outline" id="continueShoppingConfirmationBtn">
+                            <i class="fas fa-shopping-bag"></i> Continue Shopping
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Tracking Modal -->
+    <div class="modal" id="orderTrackingModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-truck"></i> Track Your Order</h3>
+                <button class="close-modal" id="closeTrackingModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="tracking-container">
+                    <!-- Order Lookup Form -->
+                    <div class="tracking-lookup" id="trackingLookup">
+                        <div class="tracking-form">
+                            <h4>Track Order Status</h4>
+                            <p>Enter your order ID to track your package</p>
+                            <div class="form-group">
+                                <label for="trackOrderIdInput">Order ID</label>
+                                <input type="text" id="trackOrderIdInput" placeholder="e.g., BPK-2024-001" class="tracking-input">
+                            </div>
+                            <div class="tracking-actions">
+                                <button class="btn btn-primary" id="trackOrderBtnLookup">
+                                    <i class="fas fa-search"></i> Track Order
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tracking Results -->
+                    <div class="tracking-results" id="trackingResults" style="display: none;">
+                        <div class="tracking-header">
+                            <h4>Order Tracking</h4>
+                            <div class="order-id-display">
+                                <span>Order ID:</span>
+                                <strong id="trackingOrderId">BPK-20240128-ABC123</strong>
+                            </div>
+                        </div>
+                        
+                        <!-- Order Status -->
+                        <div class="order-status-card">
+                            <div class="status-header">
+                                <div class="status-badge" id="trackingStatusBadge">
+                                    <span>Shipped</span>
+                                </div>
+                                <div class="status-estimate">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <span>Estimated Delivery: <strong id="trackingDeliveryDate">Jan 28, 2024</strong></span>
+                                </div>
+                            </div>
+                            
+                            <!-- Tracking Timeline -->
+                            <div class="tracking-timeline" id="trackingTimeline"></div>
+                            
+                            <!-- Tracking Details -->
+                            <div class="tracking-details">
+                                <div class="tracking-detail-item">
+                                    <div class="detail-label">
+                                        <i class="fas fa-truck"></i>
+                                        <span>Carrier</span>
+                                    </div>
+                                    <div class="detail-value" id="trackingCarrier">TCS Express</div>
+                                </div>
+                                <div class="tracking-detail-item">
+                                    <div class="detail-label">
+                                        <i class="fas fa-barcode"></i>
+                                        <span>Tracking Number</span>
+                                    </div>
+                                    <div class="detail-value" id="trackingNumber">TRK7890123456PK</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Order Items -->
+                        <div class="tracking-items" id="trackingItems">
+                            <h5>Order Items</h5>
+                        </div>
+                        
+                        <!-- Order Summary -->
+                        <div class="tracking-summary">
+                            <h5>Order Summary</h5>
+                            <div class="summary-row">
+                                <span>Items Total:</span>
+                                <span id="trackingSubtotal">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Shipping:</span>
+                                <span id="trackingShipping">$0.00</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Tax:</span>
+                                <span id="trackingTax">$0.00</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total:</span>
+                                <span id="trackingTotal">$0.00</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Tracking Actions -->
+                        <div class="tracking-footer">
+                            <button class="btn btn-outline" id="trackAnotherBtn">
+                                <i class="fas fa-search"></i> Track Another Order
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Loading State -->
+                    <div class="tracking-loading" id="trackingLoading" style="display: none;">
+                        <div class="loading-spinner"></div>
+                        <p>Loading tracking information...</p>
+                    </div>
+                    
+                    <!-- Error State -->
+                    <div class="tracking-error" id="trackingError" style="display: none;">
+                        <div class="error-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h4>Order Not Found</h4>
+                        <p id="trackingErrorMessage">The order ID you entered could not be found.</p>
+                        <button class="btn btn-primary" id="tryAgainBtn">Try Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Functionalities/customer.js"></script>
+</body>
+</html>

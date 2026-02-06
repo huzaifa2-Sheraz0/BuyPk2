@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sports & Fitness - BuyPK</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style.full.css">
+</head>
+<body data-category="sports">
+    <div class="top-bar">
+        <div class="top-bar-content">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +92 (300) 123-4567</span>
+                <span><i class="fas fa-envelope"></i> support@buypk.com</span>
+            </div>
+            <div class="auth-links">
+                <a href="index.html">Home</a>
+            </div>
+        </div>
+    </div>
+
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon">BP</div>
+                    <div class="logo-text">Buy<span>PK</span></div>
+                </a>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search premium products...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="category-sports.html">Sports & Fitness</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding:40px 16px">
+        <a href="index.html" style="display:inline-block;margin-bottom:12px;color:var(--primary);">&larr; Back to Home</a>
+        <h1>Sports & Fitness</h1>
+        <div id="categoryBreadcrumb" class="category-breadcrumb"></div>
+        <p class="intro-sub">Gear and accessories for an active lifestyle.</p>
+        <div id="categoryProductsGrid" class="products-grid" style="margin-top:20px"></div>
+    </main>
+
+    <script src="Functionalities/customer.js"></script>
+    <script>
+        (function(){
+            const cat = 'sports';
+            function tryRender(){
+                if(window.allProducts && window.allProducts.length){
+                    renderCategoryProducts(cat, window.allProducts);
+                } else {
+                    setTimeout(tryRender, 200);
+                }
+            }
+            tryRender();
+        })();
+    </script>
+</body>
+</html>
